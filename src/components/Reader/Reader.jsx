@@ -18,15 +18,13 @@ class Reader extends Component {
     ).isRequired,
   };
 
-  handleIncrement = () => {
+  onHandleClick = e => {
+    const { name } = e.target;
     this.setState(prevState => ({
-      publicationIndex: prevState.publicationIndex + 1,
-    }));
-  };
-
-  handleDecrement = () => {
-    this.setState(prevState => ({
-      publicationIndex: prevState.publicationIndex - 1,
+      publicationIndex:
+        name === 'next'
+          ? prevState.publicationIndex + 1
+          : prevState.publicationIndex - 1,
     }));
   };
 
@@ -45,8 +43,8 @@ class Reader extends Component {
         />
         <Publication title={publications.title} text={publications.text} />
         <Controls
-          onPrevClick={this.handleDecrement}
-          onNextClick={this.handleIncrement}
+          onPrevClick={this.onHandleClick}
+          onNextClick={this.onHandleClick}
           prevBtnDisabled={enabledPrevBtn}
           nextBtnDisabled={enabledNextBtn}
         />

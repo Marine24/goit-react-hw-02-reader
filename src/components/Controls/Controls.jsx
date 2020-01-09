@@ -11,6 +11,7 @@ const Controls = ({
   <>
     <button
       className={Styles.controls}
+      name="next"
       type="button"
       onClick={onNextClick}
       disabled={nextBtnDisabled}
@@ -19,6 +20,7 @@ const Controls = ({
     </button>
     <button
       className={Styles.controls}
+      name="prev"
       type="button"
       onClick={onPrevClick}
       disabled={prevBtnDisabled}
